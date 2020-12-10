@@ -1,0 +1,411 @@
+/* #one,
+#two,
+#three,
+#four,
+#five,
+#six,
+#seven,
+#eight,
+#nine,
+#ten,
+#eleven,
+#twelve,
+#thirteen,
+#fourteen ,
+#fifteen,
+#sixteen,
+#seventeen,
+#eighteen,
+#nineteen,
+#twenty,
+#twenty_one,
+#twenty_two,
+#twenty_three,
+#twenty_four,
+#twenty_five,
+#twenty_six_1,
+#twenty_seven,
+#twenty_eight,
+#twenty_six,
+#twenty_eight_1{
+  display: none;
+}
+#one:target,
+#two:target,
+#three:target,
+#four:target,
+#five:target,
+#six:target,
+#seven:target,
+#eight:target,
+#nine:target,
+#ten:target,
+#eleven:target,
+#twelve:target,
+#thirteen:target,
+#fourteen:target,
+#fifteen:target,
+#sixteen:target,
+#seventeen:target,
+#eighteen:target,
+#nineteen:target,
+#twenty:target,
+#twenty_one:target,
+#twenty_two:target,
+#twenty_three:target,
+#twenty_four:target,
+#twenty_five:target,
+#twenty_six_1:target,
+#twenty_seven:target,
+#twenty_eight:target,
+#twenty_six:target,
+#twenty_eight_1:target,
+#tp:target{
+  display: block;
+} */
+
+/* #one{
+  display: none;
+}
+#one:target{
+  display: block;
+} */
+
+.info {
+  /* padding: 10px;
+  text-indent: 28px; */
+  font-size: 19px;
+  line-height: 2;
+}
+.font_text {
+  font-size: 20px;
+  margin: 10px 0;
+}
+li {
+  font-size: 16px;
+}
+.real_body {
+  display: flex;
+  justify-content: flex-start;
+}
+.list_left {
+  width: 250px;
+}
+.list_right {
+  width: 950px;
+}
+.liat_a {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+}
+
+.flex_coiumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.text_pic {
+  width: 500px;
+  height: 400px;
+}
+.major {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #cccccc;
+  padding: 0 0px 10px 0;
+  margin-bottom: 15px;
+}
+.major_right {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.major_img {
+  width: 102px;
+  height: 102px;
+  border: 1px solid #cccccc;
+  margin: 15px 0 15px 15px;
+}
+
+.radius_btn {
+  border-radius: 5px;
+}
+.info_text {
+  font-size: 17px;
+  margin: 10px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.major {
+  color: #fff;
+  background: url("../img/bg1.png") no-repeat;
+  background-size: 100%;
+  margin-top: 10px;
+}
+.major_left {
+  width: 800px;
+}
+.list .lib_title{
+  background-color: #f7f7f7;
+}
+.a_active {
+  /* background-color: #999; */
+  color: #2067B9;
+}
+/* 实验步骤的图片 */
+.pic_map {
+  display: flex;
+  justify-content: flex-start;
+}
+.pic_map img {
+  margin: 5px;
+}
+/* 实验设备的图片 */
+.tec_pic div {
+  margin: 14px;
+  padding-bottom: 10px;
+}
+
+.tec_pic p {
+  text-align: center;
+  padding-top: 10px;
+}
+.tec_pic {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.step {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.step_ul {
+  margin-right: 15px;
+  width: 300px;
+  text-indent: 0;
+}
+/* 互动答疑 */
+.qa{
+  height: 500px;
+  overflow-y: auto;
+  /* background-color: #f5f5f5; */
+}
+.question{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 15px;
+}
+.answer{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 5px;
+}
+.qa_icon{
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
+.qa_text{
+  max-width: 90%;
+  padding: 5px;
+  border: 1px solid #f5f5f5;
+  border-radius: 10px;
+  flex-wrap: wrap
+}
+.qa_pic{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+.qa_pic  span{
+  font-size: 12px;
+  color: #666;
+}
+.area{
+  padding: 5px;
+  border: 1px solid #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end
+}
+.question_area{
+  width: 90%;
+  height: 100px;
+  padding: 2px;
+}
+/* 相关书籍 */
+/* .book{
+  display: flex;
+  justify-content: space-around;
+
+}
+.book_img{
+  width: 200px;
+  height: 200px;
+}
+.book_one,
+.book_zero{
+  display: none;
+}
+.book_block{
+  display: block;
+} */
+/* 在线测试 */
+.test{
+  display: flex;
+  flex-direction: column;
+}
+.test_lebal{
+  width: 80%;
+  text-align: left;
+}
+.test_flex{
+  display: flex;
+  margin-left: 10px;
+  flex-direction: column;
+}
+.no_mar_ledt{
+  margin-left: 5px;
+}
+.test_submit{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+/* 第四个详情内容 */
+.part_title{
+  margin: 20px 0;
+  color: #000;
+  padding-left: 10px;
+  font-size: 18px;
+  width: 100%;
+  vertical-align: middle;
+  text-indent: 0;
+  font-weight: bold;
+}
+.line {
+  margin-top:8px;
+  width: 3px;
+  height: 20px;
+  background-color: #dfaf89;
+  float:left;
+  vertical-align: middle;
+  margin-right:10px;
+}
+.part-table, .part-content {
+  margin-bottom: 20px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.part-table {
+  border: 1px solid #ebebeb;
+  width: 100%;
+  max-width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  background-color: transparent;
+  text-indent: 0;
+}
+.part-table>tbody>tr>td, .part-table>tbody>tr>th {
+  border: 1px solid #ebebeb;
+}
+
+.part-table>tbody>tr>td, .part-table>tbody>tr>th{
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: middle;
+}
+.part-table tr th {
+  width: 110px;
+  background-color: #f9f9f9;
+  color: #999 !important;
+  font-weight: normal;
+}
+.part-table tr th, .part-table tr td {
+  text-align: center;
+  color: #333;
+  width: 200px;
+  vertical-align: middle;
+}
+.teach{
+  text-align: left !important;
+}
+.little_text{
+  margin-top:10px;
+}
+.little_text li{
+  font-size:15px;
+  line-height: 1.8;
+  color:#909090;
+}
+.info__text_img{
+  text-align: center;
+  font-size: 12px;
+}
+.info__text_img img{
+  width:25%;
+}
+.text_img{
+  width:8%;
+}
+.lab-table{
+  width:60%;
+  margin:0 auto 20px;
+}
+.layui-timeline-axis,.layui-text h3{
+  text-indent: 0 !important;
+}
+.step_ul_li{
+  width:100%;
+}
+.a_img_list{
+  display: flex;
+  margin:20px auto 0;
+  justify-content: center;
+}
+.a_img{
+  text-align: center;
+  margin: 0 10px;
+}
+.a_img img{
+  height:250px;
+  margin-bottom:12px;
+  font-size: 12px;
+}
+.step_ul_li li{
+  text-align: justify;
+}
+.layui-collapse,.layui-colla-content,.layui-colla-item{
+  border:none !important;
+}
+.layui-colla-title{
+  background-color: transparent;
+}
+.text_link{
+  color:#dfaf89;
+}
+.duttar li{
+  list-style: none !important;
+}
+.spc_img{
+  width:47% !important;
+}
+.table_sy ul li{
+list-style: none !important;
+}
+.table_sy ul{
+  text-align: center !important;
+}

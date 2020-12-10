@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户中心</title>
+    <link rel="shortcut icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/usecenter.css">
+    <link rel="stylesheet" href="../element_ui/element.css">
+    <link rel="stylesheet" href="../css/headers.css">
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+        #app{
+            min-height: 1300px;
+            position: relative;
+        }
+        .footer{
+            position: absolute;
+            bottom: 20px;
+        }
+        </style>
+</head>
+<body>
+    <!-- 顶部 -->
+    <div id="app" v-cloak>
+        <!-- 顶部 -->
+      <div  v-if="onLogin">
+        <div class="top_h">
+            <div class="con_h">
+                <div class="left_h">
+                    <img src="../img/logo.png" alt="">
+                </div>
+                <div class="user us_center">
+                    <el-dropdown :hide-on-click="false" @command="handleCommand">   
+                        <div class="hea">
+                            <div class="head_portrait">
+                                <img :src="view_head_portrait" alt="" />
+                                <!-- <img src="../img/img3.png" alt="" /> -->
+                            </div>
+                            <div class="info">{{student_name}}</div>
+                        </div>
+                        <!-- {{student_name}} -->
+                        <div class="submenu">
+                                <el-dropdown-menu slot="dropdown">
+                                <el-dropdown-item command="a">个人中心</el-dropdown-item>
+                                <el-dropdown-item command="b">退出</el-dropdown-item>
+                                </el-dropdown-menu>
+                            <!-- <a href="">个人中心</a>
+                            <a href="">退出</a> -->
+                        </div>
+                    </el-dropdown>
+            </div>
+            </div>
+        </div>
+        <!-- 顶部logo样式结束 -->
+      </div>
+
+
+      <div  v-if="downLogin">
+
+        <div class="top_h">
+            <div class="con_h">
+                <div class="left_h">
+                    <img src="../img/logo.png" alt="">
+                </div>
+            </div>
+        </div>
+
+
+        
+      </div>
+
+
+
+      <!-- 上部实验标题开始 -->
+        <div class="head_h">
+            <div class="center_h">
+                个人中心
+            </div>
+        </div>
+        <div class="locate_h">
+            <div class="center_h">
+                <i class="icon_h"></i>
+                <el-breadcrumb separator="/">
+                    <el-breadcrumb-item ><a href="../index.html">首页</a></el-breadcrumb-item>
+                    <el-breadcrumb-item>个人中心</el-breadcrumb-item>
+                </el-breadcrumb>
+            </div>
+        </div>
+    <!-- 上部实验标题结束 -->
+    <!-- <div class="top" v-if="onLogin">
+        <div class="center">
+            <h1>
+                <span>
+                    <img src="../img/logo_03.png" alt="">
+                </span>
+            </h1>
+            <div class="user">
+                <img class="head_portrait" :src="head_portrait" alt="">
+                <div class="info">{{student_name}}</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="top"  v-if="downLogin">
+        <div class="center">
+            <h1>
+                <span>
+                    <img src="../img/logo_03.png" alt="">
+                </span>
+            </h1>
+            <div class="user">
+                <div class="btn btn_blue" @click="lo()">登录</div>
+                <div class="btn" @click="re()">注册</div>
+            </div>
+        </div>
+    </div> -->
+
+            <div id="usercenter" v-cloak>
+                <div class="center band">
+                    <div class="bandNav">
+                        <div class="navItem first">
+                        <a href="#p1">基本信息</a>
+                        </div>
+                        <div class="navItem">
+                            <a href="#p2">修改密码</a>
+                        </div>
+                        <div class="navItem" >
+                            <a href="#p3">修改手机</a>
+                        </div>
+                        <div class="navItem">
+                            <a href="#p5">开始实验</a>
+                        </div>
+                        <div class="navItem">
+                            <a href="#p4" @click="getReport()">学生成绩</a>
+                        </div>
+                        <div class="navItem">
+                            <a href="#p6" @click="getinit()">消息中心</a>
+                        </div>
+                    </div>
+                    <!-- 修改个人信息 -->
+                    <div class="navCont" id="p1" >
+                        <div class="contTitle">
+                            基本信息
+                        </div>
+                        <div class="cont">
+                            <div>
+                                <div class="cont_l">
+                                    <div class="line">
+                                        <div class="lineTitle">手机号码:</div>
+                                        <div><span>{{iphone}}</span>
+                                            <!-- <div class="btn_change"><a href="#p3">修改手机</a></div> -->
+                                        </div>
+                                    </div>
+                                    <div class="line">
+                                        <div class="lineTitle">真实姓名:</div>
+                                        <div><span>{{student_name}}</span></div>
+                                    </div>
+                                    <!-- <div class="line">
+                                        <div class="lineTitle">学生属性:</div>
+                                        <div><span>{{isos}}</span></div>
+                                    </div> -->
+                                    <div class="line">
+                                        <div class="lineTitle">性别:</div>
+                                        <div>
+                                            <span class="sex"><i id="nan" @click="nan()"></i>男</span>
+                                            <span class="sex"><i id="nv" @click="nv()"></i>女</span>
+                                        </div>
+                                    </div>
+                                    <div class="line">
+                                        <div class="lineTitle"></div>
+                                        <div>
+                                            <div class="btn_save" @click="saveStudent()">保存</div>
+                                            <!-- <div class="btn_cancel">取消</div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cont_r">
+                                    <!-- <img :src="head_portrait" width="100%" alt=""> -->
+                                    <!-- <div class="btn_edit">修改头像</div> -->
+                                    <form action="" method="post" enctype="multipart/form-data"></form>
+                                        <table>
+                                            <tr>
+                                                <td id="imgStyle"><img id="img" :src="view_head_portrait" width="100%"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="50px" width="300px" align="center">
+                                                    <a href="javascript:" id="imgStylebutton">修改头像
+                                                        <input @change="uploadPic()" type="file" id="uploadImg" accept="image/jpg,image/jpeg,image/png,image/PNG">
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>   
+                                    </form>
+                                </div>
+                                             
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 修改密码 -->
+                    <div class="navCont" id="p2" >
+                        <div class="contTitle">
+                            修改密码
+                        </div>
+                        <div class="cont contMt0 password">
+                            <div class="errortip"  ><span v-if="editPassword.errorStatus">{{editPassword.errorMsg}}</span></div>
+                            <div>
+                                <div class="cont_l">
+                                    <div class="line">
+                                        <div class="lineTitle">旧密码:</div>
+                                        <div><input type="password" v-model="editPassword.old_password">
+                                            <!-- <div class="btn_forget">忘记密码？</div> -->
+                                        </div>
+                                    </div>
+                                    <div class="line">
+                                        <div class="lineTitle">新密码:</div>
+                                        <div><input type="password" v-model="editPassword.new_password"></div>
+                                    </div>
+                                    <div class="line">
+                                        <div class="lineTitle">确认密码:</div>
+                                        <div><input type="password" v-model="editPassword.confirm_password"></div>
+                                    </div>
+                                    <div class="line lineReset">
+                                        <div class="lineTitle"></div>
+                                        <div>
+                                            <div class="tip">密码6-20个字符，由字母、数字和符号的两种以上组合</div>
+                                        </div>
+                                    </div>
+                                    <div class="line">
+                                        <div class="lineTitle"></div>
+                                        <div>
+                                            <div class="btn_save" @click="subEditPwd()">保存</div>
+                                            <!-- <div class="btn_cancel">取消</div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cont p_result" style="display: none;">
+                            <div>
+                                <div class="msg">
+                                    <div></div>
+                                    <p>修改密码成功，请牢记新的登录密码！</p>
+                                </div>
+                                <!-- <div class="btn_relog" @click="reLogin()">重新登录</div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 修改绑定手机 -->
+                    <div class="navCont" id="p3" >
+                        <div class="contTitle">
+                            修改手机
+                        </div>
+                        <div class="cont contMt0 ph_password">
+                            <div class="errortip"  ><span v-if="errStatus">{{errMsg}}</span></div>
+                            <div>
+                                <div class="cont_l">
+                                    <div class="line">
+                                        <div class="lineTitle">验证密码:</div>
+                                        <div><input type="password" v-model="password"></div>
+                                    </div>
+                                    <div class="line">
+                                        <div class="lineTitle">修改手机:</div>
+                                        <div><input type="text" v-model="eidtIphone"></div>
+                                    </div>
+                                    <div class="line">
+                                        <div class="button_save" @click="Editphone()">保存</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 第三步：修改结果 -->
+                        <div class="cont ph_result" style="display: none;">
+                            <div>
+                                <div class="msg">
+                                    <div></div>
+                                    <p>修改手机成功！</p>
+                                </div>
+                                <!-- <div class="btn_relog">重新登录</div> -->
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- 学生成绩 -->
+                    <div class="navCont" id="p4" name="p4">
+                        <div class="contTitle">
+                            学生成绩
+                        </div>
+                        <div class="p4Content">
+                            <el-table
+                        v-if="tableData"
+                        stripe
+                            :data="tableData"
+                            style="width: 100%;border-top: 1px solid #eee; text-align: center;">
+                            <!-- <el-table-column
+                            prop="dn"
+                            label=""
+                            width="50"
+                            >
+                            </el-table-column> -->
+                            <el-table-column
+                            prop="student_id"
+                            label="学号"
+                            >
+                            </el-table-column>
+                        
+                            <el-table-column
+                            prop="student_name"
+                            label="姓名"
+                            >
+                            </el-table-column>
+                            
+                            <el-table-column
+                            prop="end_time"
+                            label="实验提交时间">
+                            </el-table-column>
+                            <el-table-column
+                            prop="total_score"
+                            label="成绩">
+                            </el-table-column>
+                            <el-table-column
+                            label="查看实验报告"
+                            >
+                                <template slot-scope="scope">
+    　　　　　　                    <el-button type="text" @click="showReport(scope.row)">查看详情</el-button>
+    　　　　                    </template>
+                            </el-table-column>
+                            </button>
+                        </el-table>  
+                        <div class="pages" v-if="totalPage"> 
+                            <el-pagination 
+                                @size-change="handleSizeChange" 
+                                @current-change="handleCurrentChange" 
+                                :current-page.sync="currentPage3" 
+                                :page-size="5" 
+                                layout="prev, pager, next, jumper" 
+                                :total="5*totalPage">
+                            </el-pagination>
+                          </div>  
+                        </div>
+                               
+                    </div>
+                    <!-- 开始实验 -->
+                    <div class="navCont" id="p5" >
+                        <div class="contTitle shiyan">
+                            开始实验
+                        </div>
+						
+                        <el-row style="width: 770px;">
+                            
+							
+                            <el-button type="primary" @click="window.location.href='../html/airexpress.html'">
+                                虚拟航空物流
+                            </el-button>
+                        
+                        </el-row>
+                    </div>
+                    <!-- 消息列表 -->
+                    <div class="navCont" id="p6" >
+                        <div class="contTitle">
+                            消息列表
+                        </div>
+                        
+                            <div class="main_top">
+                                <!-- 消息内容 -->
+                                <div class="main">
+                                    <div class="main_zh ma_bo" v-for="(item,index) of tabledatas" v-if="tabledatas">
+            
+                                        <div class="main_left">
+                                            <el-badge :is-dot="item.new_message_status" class="item" style="width: 100%;">
+                                                <img :src="item.head_portrait" alt="">
+                                            </el-badge>
+                                        </div>
+            
+                                        <div class="main_right">
+                                            <div class="main_right_sec main_mang">
+                                                <span class="main_ris" style="display: inline-block; max-width: 600px;vertical-align: middle; text-align: left; white-space: nowrap;
+                                                text-overflow: ellipsis;
+                                                overflow: hidden;">{{item.title}}</span>
+                                                <span class="main_time">{{item.create_time}}</span>
+                                            </div>
+                                            <div class="main_right_three ">
+                                                <span class="main_src" style="display: inline-block; max-width: 680px;vertical-align: middle; text-align: left; white-space: nowrap;
+                                                text-overflow: ellipsis;
+                                                overflow: hidden;">
+                                                    {{item.content}}
+                                                </span>
+                                                <div class="main_to_s">
+                                                    <span @click="remove(item.message_id)">
+                                                        阅读全文
+                                                    </span>
+                                                    <div class="main_img icon">
+                                                        <i class="icon icon-del"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="main_right_foot">
+                                                <div class="main_fi_one">
+                                                    <div class="main_di"></div>
+                                                    <span style="margin-right: 10px;">{{item.reply_num}} 条回复</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="demo2-2" class="main_foe"></div>
+                                    <div class="block main_foe" style="text-align: center;">
+                                        <el-pagination 
+                                            @size-change="handleSizeChangeM" 
+                                            @current-change="handleCurrentChangeM" 
+                                            :current-page.sync="currentPage3" 
+                                            :page-size="10" 
+                                            layout="prev, pager, next, jumper" 
+                                            :total="10*totalPageM">
+                                        </el-pagination>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="footer">
+                <div>
+                    <span>
+                        <a href="javascript:;">郑州航空工业管理学院1999-2019 版权所有</a> 
+                        <a href="http://www.miit.gov.cn/">豫ICP备05002444号-1</a>
+                    </span>
+                </div>
+            </div>
+    </div>
+    
+</div>
+<script src="../publicJs/vue.js"></script>
+    <script src="../element_ui/element.js"></script>
+    <script src="../publicJs/axios.js"></script>
+    <script src="../publicJs/jquery-1.12.4.js"></script>
+    <script src="../publicJs/pub.js"></script>
+    <script src="../js/usercenter.js"></script>
+    <script>
+        
+        window.location.href="#p1";
+        var guding=document.querySelectorAll('.bandNav>.navItem');
+        if(guding){
+            for(var i =0 ; i<guding.length; i++){
+                guding[i].onclick = function(){
+                    var par= this.parentNode;
+                    var tag = par.classList.contains('click');
+                    reset();
+                    if(tag){
+                        par.classList.remove('click');
+                    }else{
+                        par.classList.add('click');
+                    }
+                }
+            }
+            function reset(){
+                for(var j =0 ;j <guding.length; j++){
+                    guding[j].parentNode.classList.remove('click');
+                }
+            }
+        }
+    </script>
+    <script>
+        // 左侧导航栏选择
+        $(document).ready(function (){
+            $(".navItem").each(function(index){
+                $(this).click(function(){ 
+                $(".navItem").removeClass("first");
+                $(".navItem").eq(index).addClass("first");
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="shortcut icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/headers.css">
+</head>
+<style>
+	[v-cloak]{
+	display:none;}
+</style>
+
+<body onkeydown="keyReg()">
+    <div id="app" v-cloak>
+        <!-- 图标 -->
+        <div class="top_h">
+            <div class="con_h">
+                <div class="left_h">
+                    <img src="../img/logo.png" alt="">
+                </div>
+                <div class="use_handler_h">
+                    <div class="btn_black_h">
+                        <a href="../index.html">返回首页</a>
+                    </div>
+                    <!-- <div class="btn_white_h">
+                                    <a href="./usecenter.html">个人中心</a>
+                                </div> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 注册 -->
+        <div class="content">
+            <div class="main">
+                <div class="lbt-part">
+                    <img src="../img/lbt.png" width="100%" alt="">
+                </div>
+                <div class="use-content">
+                    <div class="use-handler">
+                        <div class="reg">账号注册</div>
+                        <div class="space">
+                            <div class="msg_error" v-if="errorStatus">
+                                {{errorMsg}}，请重新输入
+                                <!-- <a href="findPwd.html">找回密码</a> -->
+                            </div>
+                        </div>
+                        <div class="msg">
+                            <div>
+                                <img src="../img/yonghu.png" alt="">
+                            </div>
+                            <input name="num" type="text" placeholder="请输入学号" v-model="account_num" onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                onafterpaste="this.value=this.value.replace(/\D/g,'')" size="14">
+                        </div>
+                        <div class="msg">
+                            <div>
+                                <img src="../img/banji1.png" alt="">
+                            </div>
+                            <input name="grade" type="text" placeholder="请输入班级" v-model="grade">
+                        </div>
+                        <div class="msg">
+                            <div>
+                                <img src="../img/xingming.png" alt="">
+                            </div>
+                            <input name="name" type="text" placeholder="请输入姓名" v-model="student_name">
+                        </div>
+                        <div class="msg">
+                            <div>
+                                <img src="../img/zhuanye.png" alt="">
+                            </div>
+                            <input name="major" type="text" placeholder="请输入专业" v-model="major">
+                        </div>
+                        <div class="msg">
+                            <div>
+                                <img src="../img/mima.png" alt="">
+                            </div>
+                            <input name="pwd" type="password" placeholder="请输入密码" v-model="password" onkeyup="value=value.replace(/[/W]/g,'') ">
+                        </div>
+                        <div class="msg">
+                            <div>
+                                <img src="../img/mima.png" alt="">
+                            </div>
+                            <input name="upwd" type="password" placeholder="请确认密码" v-model="upassword" onkeyup="value=value.replace(/[/W]/g,'') ">
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div id="input1" class="reg_now mr" @click="judgeReg()">
+                            立即注册
+                        </div>
+                    </div>
+                    <div class="zl">
+                        已有账号？
+                        <a href="./log.html">直接登录</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div>
+                <span>
+                    <a href="javascript:;">郑州航空工业管理学院1999-2019 版权所有</a> 
+                    <a href="http://www.miit.gov.cn/">豫ICP备05002444号-1</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="../publicJs/vue.js"></script>
+    <script src="../publicJs/axios.js"></script>
+    <script src="../publicJs/jquery-1.12.4.js"></script>
+    <script src="../publicJs/pub.js"></script>
+    <script src="../js/reg.js"></script>
+    <script>
+        function keyReg() {
+            if (event.keyCode == 13) //回车键的键值为13
+                document.getElementById("input1").click(); //调用登录按钮的登录事件
+        }
+    </script>
+</body>
+
+</html>

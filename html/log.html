@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录</title>
+    <link rel="shortcut icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/headers.css">
+    
+</head>
+	<style>
+		[v-cloak]{
+		display:none;}
+	</style>
+<body onkeydown="keyLogin()">
+    <div id="app" v-cloak>
+        <!-- logo图标 -->
+        <div class="top_h">
+            <div class="con_h">
+                <div class="left_h">
+                    <img src="../img/logo.png" alt="">
+                </div>
+                <div class="use_handler_h">
+                    <div class="btn_black_h">
+                        <a href="../index.html">返回首页</a>
+                    </div>
+                    <!-- <div class="btn_white_h">
+                            <a href="./usecenter.html">个人中心</a>
+                        </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- 登录 -->
+        <div class="content" id="log">
+            <div class="main">
+                <div class="lbt-part">
+                    <img src="../img/lbt.png" width="100%" alt="">
+                </div>
+                <div class="use-content">
+                    <div class="use-handler">
+                        <div class="reg">账号登录</div>
+                        <div class="spa">
+                            <div class="msg_error" v-if="errorStatus">
+                                {{errorMsg}}，请重新输入
+                                <!-- <a href="findPwd.html">找回密码</a> -->
+                            </div>
+                        </div>
+                        <div class="msg" >
+                            <div>
+                                <img src="../img/yonghu.png" alt="">
+                            </div>
+                            <input type="text" placeholder="请输入账号/手机号" v-model="account_num">
+                        </div>
+                        <div class="msg">
+                            <div>
+                                <img src="../img/mima.png" alt="">
+                            </div>
+                            <input type="password" placeholder="请输入密码" v-model="password">
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <div id="input1" class="reg_now mr" @click="judgeLog()">
+                            登录
+                        </div>
+                    </div>
+                    <div class="mess">
+                        <a class="zhu" onclick="onzhu()">
+                            立即注册
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="footer">
+                <div>
+                    <span>
+                        <a href="javascript:;">郑州航空工业管理学院1999-2019 版权所有</a> 
+                        <a href="http://www.miit.gov.cn/">豫ICP备05002444号-1</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../publicJs/vue.js"></script>
+    <script src="../publicJs/axios.js"></script>
+    <script src="../publicJs/jquery-1.12.4.js"></script>
+    <script src="../publicJs/pub.js"></script>
+    <script src="../js/log.js"></script>
+    <script>
+        // 点击立即注册跳转注册页面
+        function onzhu() {
+            window.location.href = 'reg.html'
+        }
+    </script>
+    <script>
+        function keyLogin() {
+            if (event.keyCode == 13) //回车键的键值为13
+                document.getElementById("input1").click(); //调用登录按钮的登录事件
+        }
+    </script>
+    <!-- <script>
+        window.onload=function(){
+            var input = document.getElementsByTagName("input");
+            console.log(input)
+            var ppt = document.getElementsByClassName("msg");
+            console.log(ppt)
+            input.onfocus = function() {
+                ppt.style.bordercolor="#4182fa";                 
+                 this.value='';
+             };
+             input.onblur = function() {
+                ppt.style.bordercolor="#eeeeee";
+                 if(this.value.length < 1) this.value='请输入'; 
+             };  
+        }
+    </script> -->
+
+</body>
+
+</html>

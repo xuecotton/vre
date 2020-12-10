@@ -1,0 +1,1133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>首页</title>
+  <!-- <link rel="stylesheet" href="./css/"> -->
+  <link rel="shortcut icon" href="./img/logo.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./css/index_common.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./layui/css/layui.css">
+  <link rel="stylesheet" href="./css/introduceInfo1.css">
+  <link rel="stylesheet" href="./element_ui/element.css">
+
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+    
+*{
+font-family: 'PingFang SC', sans-serif;
+}
+  </style>
+</head>
+
+<body>
+  <div id="app" v-cloak>
+    <div class="content">
+      <div class="top" id="tp">
+        <div class="con">
+          <div class="left">
+            <img src="./img/logo.png" alt="">
+          </div>
+          <div class="use_handler" v-if="!onLogin">
+            <div class="btn_black sjg">
+              <a href="http://lab.groupontrading.com/alt/login.html" target="_blank">教师登录</a>
+            </div>
+            <div class="btn_black " @click="lo">
+              
+              <div>登录</div>
+            </div>
+            <div class="btn_white" @click="re">
+              <div>注册</div>
+            </div>
+          </div>
+          <div class=" us_center" v-if="onLogin">
+            <el-dropdown :hide-on-click="false" @command="handleCommand">
+              <div class="hea">
+                <div class="head_portrait">
+                  <img :src="head_portrait" alt="" />
+
+                </div>
+                <div class="info">{{student_name}}</div>
+              </div>
+              <!-- {{student_name}} -->
+              <div class="submenu">
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item command="a">个人中心</el-dropdown-item>
+                  <el-dropdown-item command="b">退出</el-dropdown-item>
+                </el-dropdown-menu>
+                <!-- <a href="">个人中心</a>
+                    <a href="">退出</a> -->
+              </div>
+            </el-dropdown>
+          </div>
+          <!-- <div class="use_handler" v-if="onLogin">
+            <div class="btn_black" @click="handleCommand('a')">
+              <div>个人中心</div>
+            </div>
+            <div class="btn_white">
+              <div>退出</div>
+            </div>
+      </div> -->
+        </div>
+      </div>
+      <div class="banner">
+        <div class="banner_box">
+          <div class="banner_cont">
+            <div></div>
+          </div>
+          <div class="mes">
+            <div class="me_top">
+              <div class="dv">
+                <h5>管理工程学院</h5>
+                <p>航空物流虚拟仿真实验教学项目</p>
+              </div>
+              <div class="intro">
+				<span> 航空物流虚拟仿真实验教学项目在我校航空物流专业建设的基础上，以“航空物流”为主题，以航空物流的业务流程和操作为主要对象，综合多门专业核心课程的主要知识点，为学生提供以机场货站为核心的航空物流模拟环境，帮助学生直观感受航空物流。通过虚拟仿真实验，学生能对航空物流传统教学中较理论和抽象的内容有更深刻的理解和认识。</span>
+              </div>
+            </div>
+            <div>
+
+              <div class="btn_hand">
+                <div @click="toExprement">
+                  <span class="opcity_line"></span>
+                  开始实验</div>
+                <!-- <div>
+                  <span class="opcity_line"></span>
+                  实验考试</div>
+                <div>
+                  <span class="opcity_line"></span>
+                  查看成绩</div> -->
+              </div>
+            </div>
+            <!-- <div class="pot"> 
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div> -->
+          </div>
+          <!-- <div class="arrow_banner">
+            <span class="arrow_left">
+              <img src="./img/arrow-l.png" alt="上一张">
+            </span>
+            <span class="arrow_right">
+              <img src="./img/arrow-r.png" alt="下一张">
+            </span>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="m_left">
+          <div class="left_title">
+            <span></span>
+            实验目录
+          </div>
+          <div class="layui-collapse" lay-accordion="">
+            <div class="list layui-colla-item">
+              <h2 class="layui-colla-title li_title">实验描述</h2>
+              <div class="expand layui-colla-content">
+                <ul>
+                  <li>
+                    <a class="liat_a a_active" href="#one">实验目的</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#two">实验原理</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#three">实验仪器设备</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#four">实验材料</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#five">实验教学方法</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#six">实验方法与步骤要求</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#seven">实验结果与结论要求</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#eight">考核要求</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#nine">面向学生要求</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="list layui-colla-item">
+              <h2 class="layui-colla-title li_title">实验相关网络要求描述
+              </h2>
+              <div class="expand layui-colla-content">
+                <ul>
+                  <li>
+                    <a class="liat_a" href="#ten">网络条件要求</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#eleven">用户操作系统要求</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#twelve">用户非操作系统软件配置要求</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#thirteen">用户硬件配置要求</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#fourteen">用户特殊外置硬件要求</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="list layui-colla-item">
+              <h2 class="layui-colla-title li_title">实验技术架构及主要研发技术
+              </h2>
+              <div class="expand layui-colla-content">
+                <ul>
+                  <li>
+                    <a class="liat_a" href="#fifteen">技术架构及主要研发技术</a>
+                  </li>
+                  <!-- <li>
+                    <a class="liat_a" href="#fourteen">网络条件</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#fifteen">用户操作</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#sixteen">用户非操作要求</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#seventeen">用户硬件配置</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#eighteen">特殊外置硬件</a>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+            <div class="list layui-colla-item">
+              <h2 class="layui-colla-title li_title">实验特色
+              </h2>
+              <div class="expand layui-colla-content">
+                <ul>
+                  <li>
+                    <a class="liat_a" href="#sixteen">实验特色</a>
+                  </li>
+                  <!-- 
+                  <li>
+                    <a class="liat_a" href="#seventeen">用户硬件配置</a>
+                  </li>
+                  <li>
+                    <a class="liat_a" href="#eighteen">特殊外置硬件</a>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+            <div class="list layui-colla-item">
+              <h2 class="layui-colla-title li_title">项目应用范围和预期效果
+              </h2>
+              <div class="expand layui-colla-content">
+                <ul>
+                  <li>
+                    <a class="liat_a" href="#seventeen">项目应用范围和预期效果</a>
+                  </li>
+                  <!-- <li>
+                    <a class="liat_a" href="#eighteen">特殊外置硬件</a>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+            <div class="list layui-colla-item">
+              <h2 class="layui-colla-title li_title">留言模块
+              </h2>
+              <div class="expand layui-colla-content">
+                <ul>
+                  <li>
+                    <a class="liat_a" href="./html/leaving.html">用户留言</a>
+                  </li>
+                  <!-- <li>
+                    <a class="liat_a" href="#eighteen">特殊外置硬件</a>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="m_right">
+
+          <!--2.2  实验目的 -->
+          <div id="one" class="introduce show">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                实验目的
+              </div>
+              <div class="part1">
+                <div class="p_title">
+
+                </div>
+                <div class="p_cont sygs">
+                  <p class="text_s">本实验项目通过构建航空物流虚拟仿真系统，以机场货站为核心，模拟航空物流活动中货物的进出港业务流程和操作。学生通过该实验项目能够直观感受航空物流的场景，在巩固课程理论教学的同时提升实践操作能力。
+                  </p>
+
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  目标一：增强学生对航空物流组织和管理的直观认识
+                </div>
+                <div class="p_cont">
+                  航空运输中，安全始终放在首位。从航空货物的申报开始，与该票货物相关的工作人员的操作都直接或间接地影响到该货物的正常和安全运输。本项目通过虚拟仿真实验环境和对象，将场景融于一体，让学生能够充分地体验航空物流组织和管理的情境，增强学生对航空物流多环节协作的认识。
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  目标二：提升学生的航空物流实践操作能力
+                </div>
+                <div class="p_cont">
+                  本项目通过模拟委托代理、接单接货、运费计算、货运单缮制、配载与平衡等主要环节，将业务操作贯穿其中，构建出航空物流虚拟仿真平台。学生可参与多种虚拟货物运输情境进行模拟训练，提升整体的实践操作能力。
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  目标三：满足不同对象的教学需求
+                </div>
+                <div class="p_cont">
+                  航空物流涉及发货人、代理人、承运人等主体，不同主体的责任和要求是不同的。同时，本项目面向的专业学生也各有差异。项目在开发的时候考虑到了这种情况。本项目设置了不同的模块和难度，以满足不同对象的教学需求。
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  目标四：提升社会服务能力
+                </div>
+                <div class="p_cont">
+                  本项目一方面可以为相关专业提供一种新的教学方式和手段；另一方面，本项目立足于“ICAO/FIATA空运危险品郑州培训分中心” 和“CIFA/FIATA货运代理资格证书”项目，将积极与业界交流合作，将本科教学与行业培训相结合，进一步提升社会服务能力和水平。
+                </div>
+                <!-- <table border="1">
+                  <caption>表 1 PVC几何尺寸和物理性能 / Table 1 Property of PVC pipe</caption>
+                  <thead>
+                    <td>外径D/cm</td>
+                    <td>内径d/cm</td>
+                    <td>半径R/cm</td>
+                    <td>长度L/cm</td>
+                    <td>弹性模量E/GPa</td>
+                    <td>惯性矩l/(10xmm4)</td>
+                  </thead>
+                  <tr>
+                    <td>6</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>200</td>
+                    <td>5</td>
+                    <td>59.65</td>
+                  </tr>
+                </table> -->
+              </div>
+            </fieldset>
+          </div>
+          <!-- 2.3 实验原理 -->
+          <div id="two" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                实验原理
+              </div>
+              <div class="part1">
+                <div class="p_cont sygs">
+                  本项目以《航空物流》《民航货运管理》和《民航配载与平衡》等相关专业课程为基础，主要涉及以下知识点：
+                </div>
+              </div>
+
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  航空物流虚拟仿真-知识点
+                </div>
+                <table border="1" class="te_left" style="margin-top: 20px;margin-bottom: 30px;">
+                  <thead>
+                    <td>航空物流虚拟仿真任务</td>
+                    <td>知识点</td>
+                  </thead>
+                  <tr>
+                    <td>航空物流的主要物质基础</td>
+                    <td>
+                      <p class="bz">1、飞机</p>
+                      <p>a、飞机的构成：机身、机翼、尾翼、起落装置、动力装置，如图1所示。</p>
+                      <div class="knowBox">
+						<span>图1.飞机的五大组成</span>
+                        <img src="./img/index/plane.png" alt="">
+                      </div>
+                      <p >b、飞机的分类</p>
+                      <p class="pl_25">根据机身宽度：窄体飞机和宽体飞机；</p>
+                      <p class="pl_25">根据使用用途：全货机、全客机、客货混用机。</p>
+                      <p>c、飞机的舱位，如图2和图3所示</p>
+                      <div class="knowBox">
+						<span>图2 B747的舱室分布（注：其他飞机没有上舱）</span>
+                        <img src="./img/air/plane_deck01.png" alt="">
+						<span>图3 飞机分货舱</span>
+                        <img src="./img/air/plane_deck02.png" alt="">
+                      </div>
+                      <p class="bz">2、机场，如图4所示。</p>
+                      <div class="knowBox1">
+					  <span>图4 机场的分类</span>
+                        <img src="./img/index/airport.png" alt="">
+                        
+                      </div>
+                      <p class="bz">3、航线，如图5所示</p>
+                      <div class="knowBox1">
+					  <span>图5航线划分及航线示意图</span>
+                        <img src="./img/index/airline.png" alt="">
+                        
+                      </div>
+                      <p>a、集装器：集装板（Pallet）、集装棚（Igloo）和集装箱（Container）。如图6</p>
+                      <div class="knowBox1">
+					  <span>图6 常见的集装器类型</span>
+                        <img src="./img/index/box.png" alt="">
+                        
+                      </div>
+					  <div style="display:flex;">
+                      <p >b、</p>
+					  <p style="margin-left:0">常见设施设备：传送带车、叉车、升降平台、集装箱运输拖车、集装板装货限制模架等，如图7所示：</p>
+					  </div>
+                      <div class="knowBox1">
+					  <span>图7 常见的航空物流设施设备</span>
+                        <img src="./img/index/commonCar.png" alt="">
+                        
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>航空货物的分类</td>
+                    <td>
+                      <p>1、普通货物：如书籍、衣服等。</p>
+					  <div style="display:flex;">
+                      <p >2、</p>
+					  <p style="margin-left:0">特种货物：鲜活易腐货物、骨灰和灵柩、贵重物品、超大超重货物、生物制品、活体动物等。</p>
+					  </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>进出港流程</td>
+                    <td>
+                      <p>1、进港流程，如图8所示。</p>
+                      <div class="knowBox1">
+					  <span>图8 进港流程</span>
+                        <img src="./img/index/in.png" alt="">
+                        
+                      </div>
+                      <p>2、出港流程，如图9所示。</p>
+                      <div class="knowBox1">
+					  <span>图9 出港流程</span>
+                        <img src="./img/index/out.png" alt="">
+                        
+                      </div>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>航空货运单证</td>
+                    <td>
+					<div style="display:flex;">
+                      <p >1、</p>
+					  <p style="margin-left:0">托运书：货物托运书是托运人办理货物托运时填写的书面文件，是填开航空货运单的凭据。</p>
+					  </div>
+					  <div style="display:flex;">
+                      <p >2、</p>
+					  <p style="margin-left:0">航空货运单：航空货运单是发货人收结汇的主要有效凭证，也是承运人托运人双方的航空运输合同。缮制航空货运单也是空运出口业务中最重要的环节，必须详细、准确填写各项内容。</p>
+					  </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>航空运费计算</td>
+                    <td>
+                      <p>1、运价类型：公布直达运价和非公布直达运价</p>
+                      <p>2、运价的使用和顺序：</p>
+                      <p class="pl_25">M——最低运费</p>
+                      <p class="pl_25">N——普通货物一般运价</p>
+                      <p class="pl_25">Q——普通货物折扣运价</p>
+                      <p class="pl_25">C——指定商品运价</p>
+                      <p class="pl_25">S——附加等级货物运价</p>
+                      <p class="pl_25">R——附减等级货物运价。</p>
+                      <p>3、重量：毛重，体积重量，计费重量。</p>
+                      <p>4、航空运费计算步骤如下：</p>
+                      <p class="pl_25">计算出航空货物的体积及体积重量。</p>
+                      <p class="pl_25">比较体积重量与总重量（毛重），取大者为计费重量。</p>
+                      <p class="pl_25">根据公布运价，找出适合计费重量的适用运价（Applicable Rate ) </p>
+                      <p class="pl_25">计算航空运费（Weight Charge )：航空运费＝计费重量×适用运价</p>
+                      <p class="pl_25">计算出航空运费与最低运费M作比较，取高者。</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>航空货物的装载</td>
+                    <td>
+                      <p>1、集装设备的使用和装载原则</p>
+                      <p class="pl_25">集装货物装载的基本原则</p>
+                      <p class="pl_25">货物装载方案设计</p>
+                      <p class="pl_25">打板：行业内将航空集装器统称为“板”。打板就是把需要装进飞机货舱的货物先按照一定的规则装到集装器上。</p>
+                      <p>2、飞机对装载货物的限制：重量限制、体积限制、舱门限制、机舱地板限制。</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>配载平衡</td>
+                    <td>
+					<div style="display:flex;">
+                      <p >1、</p>
+					  <p style="margin-left:0">配载，配载是根据飞机从本站出发的最大允许业务载重量来计算运至各有关前方航站的旅客、行李、货物和邮件的重量。</p>
+					  </div>
+                      <p class="pl_25">预配：是在航班起飞前一段时间内根据飞机的可用业务载重量、预计的旅客人数、预留的行李和邮件重量，对飞机所载运货物进行配运。</p>
+                      <p class="pl_25">结算：在旅客办理完乘机手续后根据旅客、行李、邮件的实际载运情况在预配的基础上进行适当调整，以得出最终的飞机运输货物的量的过程。</p>
+					  <div style="display:flex;">
+                      <p >2、</p>
+					  <p style="margin-left:0">平衡，平衡是在配载完成的基础上，考虑如何合理的安排飞机所载运的旅客、行李、邮件、货物在飞机内的布局，从而使飞机的重心符合要求，在飞行中能够保持安全飞行状态。</p>
+					  </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>货物交付与理赔</td>
+                    <td>
+					<div style="display:flex;">
+                      <p >1、</p>
+					  <p style="margin-left:0">货物交付：货物进港后，要对货物进行接收，并检查货物核对单证。货到后12小时内必须将到货信息通知给客户。一般国内客机在航班到达1小时后可以提货；国际航班因涉及进口报关手续，航班到达后第二天才可以抽单报关；免税的货物当天就能提货；征税货物征税完后海关放行，方可提货。</p>
+					  </div>
+					  <div style="display:flex;">
+                      <p >2、</p>
+					  <p style="margin-left:0">理赔：货物在运输过程中可能会因各个环节的操作不当而造成货物不正常情况，比如拉下货物、漏装货物、漏卸货物、多（少）收货物、多（少）收货物单、货物破损、无人提取的货物等，为此需要进行理赔等相关事宜。</p>
+					  </div>
+					  <div style="display:flex; color:#c9cbcc">
+                      <p style=" color:#c9cbcc">注：</p>
+					  <p style="margin-left:0;color:#c9cbcc">托运人或收货人要求赔偿时，应在填写货运事故记录的次日起180天内，以书面形式向承运人提出，并随附有关证明文件。承运人对托运人或收货人提出的赔偿要求，应在收到书面赔偿要求的次日起60天内处理。需要注意，航空运输的诉讼时效为两年，自民用航空器到达目的地或者运输终止日起计算。</p>
+					  </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>货物的不正常运输</td>
+                    <td><p>货物的不正常运输，是指货物在运输过程中由于各个环节的操作不当而造成的不正常情况，比如拉下货物、漏装货物、漏卸货物、多（少）收货物、多（少）收货物单、货物破损、无人提取的货物等。</p></td>
+                  </tr>
+                </table>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 2.4 实验仪器设备 -->
+          <div id="three" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                实验仪器设备
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  实验仪器设备
+                </div>
+                <div class="p_cont">
+                  航空物流虚拟仿真实验软件
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 2.5  实验材料-->
+          <div id="four" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                实验材料
+              </div>
+              <div class="part1">
+                <div class="p_title" style="text-align: center;margin-top: 150px;">
+                  <!-- <i></i> -->
+				  无
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 2.6  实验教学方法-->
+          <div id="five" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                实验教学方法
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  一、使用目的
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">本项目采用虚拟仿真技术以沉浸式的教学方法，从场景展开，让学生参与航空物流全过程，使学生在本项目虚实结合的交互操作中加深对航空物流知识的理解，强化实践能力。同时，实验场景设置一定的随机性，使得业务操作具有一定的多样性和不可预知性，这要求学生在理解理论知识的基础上活学活用，以探究式的方法开展实验，从而达到举一反三的教学效果。
+                  </p>
+                  <p class="text_s">
+                   
+                  </p>
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  二、实验过程
+                </div>
+                <div class="p_cont">
+                  <!--<p class="text_s">① 任务描述—让学生初步了解实验过程的内容和方法，让学生快速进入实验任务状态。例如:通过观看简介视频和引导视频。
+                  </p>
+                  <p class="text_s">② 知识链接—实验开始之前，教师对此次的教学内容相关理论知识进行讲解，在此过程中，学生需学习并理解相关理论知识，为后续的实验教学内容打下理论基础；
+                  </p>
+                  <p class="text_s">③ 互动讨论—为加深学生对重点理论知识的学习和理解，针对实验内容中的重点和难点，结合教师讲授的相关知识对实验内容进行探讨并回答问题。例如：学生可以针对操作过程中的疑问，与教师和同学进行在线讨论。
+                  </p>
+                  <p class="text_s">④ 实验训练—学生根据前期理论知识和课堂互动的学习，参考教学引导视频和实验步骤，在规定时间内完成实验任务及相关问题。此过程为实验教学过程的核心内容，在此过程中，学生将理论知识应用于实践操作，并在实践操作中发现问题并解决问题，综合提高学生的学习应用能力。例如：在冷链物流配送网络布局中，需要根据实际需要计算和布局本地仓和前置仓的位置，在仿真模拟运行中，可以通过仿真去观察本次设置的成本与服务水平之间的得分；
+                  </p>wu
+                  <p class="text_s">⑤ 根据实验结果，去明确此次设置的合理性，有无进一步优化的空间，如果需要进一步优化，可以重新做第四步；例如：对每次实验形成的结果报告结项分析就是为了锻炼学生分析解决问题的能力；
+                  </p>-->
+                  <p class="text_s">无
+                  </p>
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  三、实施效果
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">无
+                  </p>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 2.7 实验方法与步骤要求-->
+          <div id="six" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                实验方法与步骤要求
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  一、实验方法描述
+                </div>
+                <div class="p_cont">
+                  本项目以航空物流活动中机场货站为基本场景，模拟航空货运运输的进出港业务流程和操作流程，根据不同用户的专业背景和难度要求设置不同的实验模块，通过系统给定拟运输货物类型及其基本的运输信息，全面考查学生对航空物流基础理论知识的掌握，以及对现实场景的操作能力。
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  二、学生交互性操作步骤说明
+                </div>
+                <div class="p_cont">
+                  学生交互性操作步骤主要分为界面数据填写和vr动画交互两大部分，共计13个步骤。
+                </div>
+              </div>
+                <div style="height: auto;padding-left: 26px;">
+                    <el-steps direction="vertical" :active="13">
+                      <el-step title="步骤 1 ：认知实验" description="该认知实验环节以机场货站为主要场景，向学生普及航空物流涉及的一系列环节，尤其是进出港的重要作业流程，同时也会展示航空物流物质基础，如飞机、集装器、机场操作设施如传送带、叉车、托盘、升降平台等。这个环节与整个实验环节紧密联系，能让学生更直观的了解航空物流，感受航空货运。“认知实验”的主界面如下图所示。"></el-step>
+                      <el-step title="步骤 2 ：委托运输" description="本项目根据使用者的不同设置了不同的要求和难易程度。由于配载与平衡的专业性较强，使用者可根据情况选择是否完成此环节的实验。另外，根据实验的难易程度划分了 “简单”、“中等”和“困难”三个等级，三个等级需要完成的实验步骤完全相同，在若干环节上对考核知识点的要求略有差异。学生选定实验项目和难度后，正式进入“操作实验”的“委托运输”环节。系统展示A机场收货台，托运人与工作人员交流场景。以动画、图片或文字等方式提示，货物从A地机场（北京首都机场）运到B地机场（日本大阪机场），并提供货物的重量、尺寸、货品名称等信息。货物的基本运输信息最后以航空货物委托书形式呈现。"></el-step>
+                      <el-step title="步骤 3：交货" description="该步骤要完成的是托运人将货物交给收货人，根据上一步航空货物托运书的基本信息，收货人需要对做信息进行核对，以保证所运输货物的信息准确。具体包括以下环节：(1)地面代理接收货物并进行理货，对货物进行分拣，标记货物的重量和尺寸。
+                      (2)检查货物的标记标签，尤其是特种货物的标记标签。对于特种货物，需要明确不同特种货物标签的使用。
+                        (3)审核货物的各种单证。接单后，与收货凭证核对，验证货物与单证是否相符，尤其核对货物的件数、数量等。"></el-step>
+                        <el-step title="步骤 4：计算运费" description="根据系统已知的信息，计算拟运输货物的航空运费。在实验场景中，货物的尺寸、重量等信息是根据学生在前两步确认的结果显示在右上角供使用，同时，系统弹出运价表，学生需要根据拟运输货物选择合适的运价进行运费计算。该步骤考查学生对航空运费计算的基础知识掌握情况。运费计算步骤如下：①计算出航空货物的体积及体积重量。②比较体积重量与总重量（毛重），取大者为计费重量。③根据公布运价，找出适合计费重量的适用运价(Applicable Rate) ④计算航空运费（Weight Charge )：航空运费＝计费重量×适用运价 ⑤计算出航空运费与最低运费M作比较，取高者。在该步骤中，学生只需把货物尺寸和重量信息、运价类型和运价值填入到指定的空格中，计算过程由系统完成。"></el-step>
+                        <el-step title="步骤 5：缮制航空货运单" description="根据第四步计算的运费，再结合系统给定的其他信息，缮制航空货运单。
+                        航空货运单是发货人收结汇的主要有效凭证，也是承运人托运人双方的航空运输合同。缮制航空货运单也是空运出口业务中最重要的环节，必须详细、准确填写各项内容。
+                        (1)填制其他信息。
+                        在实验场景中，系统会根据设定的实验场景弹出与拟运输货物相关的其他信息，包括航程、收/发货人信息、代理人名称、到付或预付、其他费用、声明价值等，学生需要根据拟运输货物的填入必须的内容，如涉及到生命价值附加费，还必须自行计算声明价值附加费。
+                        (2)点击生成航空货运单，弹出航空货运单。
+                        在实验场景中，系统根据前面计算运费的结果和学生填入的其他信息直接生成国际航空货运单。"></el-step>
+                        <el-step title="步骤 6：打板" description="根据提供的板箱型号，针对不同的货物进行打板、装箱。
+                        该步骤设置有以下几个任务需要完成。
+                        (1)理论考核，以打板操作原则和应注意的事项为要点，设置选择题，以考查学生对该知识点的掌握情况。
+                        (2)打板操作，拟运输的货物属于小批量货物，为了呈现打板的效果，项目假设拟运输的货物能与其他货物一起组成集装货物，一起打板。在实验场景中，首先，系统自动码货，待基本成型后，需要学生将剩余的货物进行打板，形成完整的集装货物，并绑定网套，从而结束打板。"></el-step>
+                        <el-step title="步骤 7：配载" description="该步骤要完成的是飞机及装载旅客、货物、行李和邮件的各种重量的计算，并确保准确无误。
+                        在实验场景中，需要学生根据所选用的机型和相关条件填入完成如下内容：
+                        (1)实际重量的计算 
+                        首先，为了修正飞机的基本重量，需要计算操作重量；然后，通过计算最大允许业载的三个公式，求算出本航班最大允许的业务载量；接着，填写出各站业载信息，能够反映出本次航班具体装载情况；最后，由航班的旅客总重量加上货物邮件行李的重量，得出实际总业载。主要包括计算实际无油重量、实际起飞重量和实际落地重量。
+                        (2)货舱业载及指数情况栏的填写
+                        根据货舱业载的安排情况，在货舱区域重量指数表中查得各区域实际重量对应的指数，在表上相应位置填写。目的是为了计算出飞机实际无油重量指数和起飞重量指数。
+                        (3)客舱业载及指数情况栏的填写
+                        根据客舱人数的安排情况，在客舱区域人数指数表中查得各区域实际人数对应的指数，在表上相应位置填写。目的是为了计算出飞机实际无油重量指数和起飞重量指数。"></el-step>
+                        <el-step title="步骤 8：平衡" description="该步骤要完成的是飞机平衡方面的计算，并确保准确无误。
+                        (1)指数计算栏的填写
+                        修正后的基本重量指数作为起始刻度进行计算。通过客舱每个区域的人数和货舱每个区域的重量，得到对应的指数。将这些指数正确填在表格内，通过加减运算得出飞机实际无油重量指数和起飞重量指数。
+                        (2)飞机重心的求算
+                        根据航班实际无油重量和无油重量指数线在平衡图中的交点位置得出实际无油重心的%MAC值；根据航班实际起飞重量和起飞重量指数线在平衡图中的交点位置得出实际起飞重心的%MAC值。
+                  "></el-step>
+                        <el-step title="步骤 9：装机" description="该步骤要完成的是载重平衡人员通过制作装机通知单，将飞机货舱需要装载的内容显示在装载通知单上，并交接给货舱装卸人员，装卸人员按照装机通知单信息实施装载，将货物移动到货舱相应位置，从而控制飞机货舱对整个飞机重量、重心的影响，使之在限制的范围内。具体包括以下环节：
+                        (1)填制装机通知单
+                        学生根据获取的航班信息（航班号、机号、航段）和货运部门出具的货物交接单获取的货舱信息（平板车代号及装载重量），使用正确的装机通知单，应使用B737-700型飞机装机通知单。分析货舱信息，根据各货舱重量限制和体积限制，控制各货舱装载，开具装机通知单。将货物优先装在对飞机重心影响小的2，3货舱区域，然后再装1，4区域。各个分货舱下面需要注明对应的所装货物的平板车号，以指示装载人员装载。
+                        (2)装机
+                        根据装机通知单将货物装上飞机。
+                        在实验场景中，系统以动画、文字的形式展示，拖拽车把货物拉到机坪，用升降平台将货物送到舱门，展示飞机货舱布局，学生需要操作货物，完成货物的正确装机。"></el-step>
+                        <el-step title="步骤 10：空中运输" description="该步骤主要以动画、文字形式展示。飞机完成出口报关、报检等工作，开始进行空中运输，系统显示从北京首都机场起飞的画面，同时空中飞行的画面，以及日本大阪机场降落的画面。"></el-step>
+                        <el-step title="步骤 11：接单接货" description="该环节是飞机（航班）到达B地机场，完成接单接货工作。该步骤需要注意核查各类单证与货物是否一致，尤其注意货物的数量、种类等，以免出现货物异常情况。
+                        在实验场景中，首先以动画模拟接单接货场景，由工作人员对货物进行清点数量，核对单证。
+                        系统设定随机出现正常或异常的情况。
+                        情况一：系统设置异常情况，弹出选择题，考查学生对异常情况的处理。
+                        情况二：货物正常。动画显示货物清点及核对过程，逐项完成。"></el-step>
+                        <el-step title="步骤 12：提货" description="该环节模拟将货物交付给客户的过程。
+                        实验场景中，动画模拟工作人员给收货人拨打电话告知到货通知。
+                        系统设定随机出现正常或异常的情况。"></el-step>
+                        <el-step title="步骤 13：不正常运输" description="该步骤在实验场景中以选择题形式出现，以考查学生对不正常运输知识点的掌握情况。"></el-step>
+                    </el-steps>
+                </div>
+              
+            </fieldset>
+          </div>
+          <!-- 2.8 实验结果与结论要求 -->
+          <div id="seven" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                实验结果与结论要求
+              </div>
+              <!--<div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  是否记录每步实验结果：
+                </div>
+                <div class="p_cont">
+                  是 否
+                </div>
+              </div>-->
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  实验结果与结论要求
+                </div>
+                <div class="p_cont">
+                  实验报告 
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  其他描述
+                </div>
+                <div class="p_cont">
+                  无
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 2.9 考核要求 -->
+          <div id="eight" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                考核要求
+              </div>
+              <div class="part1">
+                <div class="p_cont sygs">
+                  <p class="text_s"> 本实验课程的考核内容包含学生的出勤情况、实验的完成情况、实验的总结与实验报告的编写等。</p>
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title" style="font-size:16px;">
+				一、学生的出勤情况、学生实验的态度等占实验成绩的20%。其中，学生的出勤为15%；学生实验的态度的好坏为5%。
+                </div>
+                <div class="p_cont">
+                  <p class="text_s"><strong style="color:#333">学生出勤考核分为:</strong><br>(1)缺勤，记0分；②迟到或早退，记5-10分；<br>(2)完全出勤，记15分。</p>
+                  <p class="text_s"><strong style="color:#333">学生做实验的态度考核:</strong><br>(1)能够听从老师的合理安排，遵守课堂纪律，认真做实验，记5分；<br>(2)做实验较认真，记2-4分；<br>(3)做实验不认真，并且造成一定的负面影响，记0-1分。</p>
+                </div>
+				<div class="p_title" style="font-size:16px;">
+				二、实验的过程完成情况的考核占50%。考核内容包含：实验所用设备、软件操作步骤的正确性、实验数据采集与计算的正确性和规范性等。
+                </div>
+				<div class="p_cont">
+				<p class="text_s"><strong style="color:#333">设备、软件操作的正确性:</strong><br> (1)完全正确且有一定的熟练程度,记30分; ②操作较正确,经过老师指导纠正,达到的程度记24分;<br>(2)经过老师反复指导能够基本掌握操作使用,记18分；<br>(3)不能够完成实验，根据情况，记0-10分。</p>
+                  <p class="text_s"><strong style="color:#333">实验数据采集与计算的正确性和规范性：</strong><br>(1)完全正确，记20分；<br>(2)实验数据较正确,记16分;<br>(3)经过老师反复指导能够采集较正确的数据，结果较准确,记12分；<br>(4)不能够采集正确数据和进行计算，根据情况，记0-8分。</p>
+				</div>
+				<div class="p_title" style="font-size:16px;">
+				三、实验报告的编写考核占30%。
+                </div>
+				<div class="p_cont">
+				<p class="text_s"><strong style="color:#333">考核的内容有；</strong>实验报告提交情况、实验报告内容的正确性、完整性、规范性</p>
+				<p class="text_s">(1)实验报告能够按规定提交记5分；不能提交实验报告考核项记0分。<br>(2)实验报告的内容齐全，书写认真规范，结果正确，记25分；<br>(3)书写认真，内容较齐全，结果基本正确，记20分；<br>(4)书写较认真规范，内容缺失1/3，计算有错误，记15分；</p>
+                  <p class="text_s">(5)报告编写不规范，条理不清，内容缺失1/3，计算错误较多，记0-10分。</p>
+				</div>
+				<div class="p_title" style="margin-bottom:30px;font-size:16px;">
+				四、实验课考核成绩满分为100分，整个课程考核成绩为该课程所有实验课的平均考核成绩。
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 2.10  面向学生要求-->
+          <div id="nine" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                面向学生要求
+              </div>
+              <div class="part1">
+			  <div class="p_title" style="font-size:16px;">
+				一、专业与年级要求
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">本项目面向的专业包括交通运输、物流管理、物流管理（航空物流方向）等。开课学期依专业不同分别为第4学期、第5学期或第6学期。</p>
+                  <p class="text_s">本项目面向与航空货物运输有关的货主、包装人、航空公司、机场、航空公司地面操作代理和销售代理等相关人员等。</p>
+                  <!-- <p>(2)基本知识和能力要求</p>
+                  <p class="text_s">基本知识</p>
+                  <p class="text_s">本项目要求具备《民航货运管理》《航空物流》《民航配载与平衡》或相似课程的基本知识，或具有相关工作经历。</p> -->
+				  </div>
+                  <div class="p_title" style="font-size:16px;">
+				二、基本知识和能力要求
+                </div>
+				<div class="p_cont">
+				<p class="text_s">基本知识</p>
+                  <p class="text_s">本项目要求具备《民航货运管理》《航空物流》《民航配载与平衡》或相似课程的基本知识，或具有相关工作经历。</p>
+				</div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 3.2  网络条件要求 -->
+          <div id="ten" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                网络条件要求
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  一、说明客户端到服务器的带宽要求
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">(1)基于公有云服务器部署的系统，5M-10M带宽。</p>
+                  <p class="text_s">(2)基于局域网服务器部署的系统，10M-50M带宽。</p>
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  二、说明能够支持的同时在线人数
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">支持200个学生同时在线并发访问和请求，如果单个实验被占用，则提示后面进行在线等待，等待前面一个预约实验结束后，进入下一个预约队列。</p>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 3.3  用户操作系统要求（如Windows、Unix、IOS、Android等）-->
+          <div id="eleven" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                用户操作系统要求
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  一、计算机操作系统和版本要求
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">客户端操作系统： Windows7(64位)及以上</p>
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  二、其他计算终端操作系统和版本要求
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">无</p>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 3.4  用户非操作系统软件配置要求-->
+          <div id="twelve" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                用户非操作系统软件配置要求
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  一、计算机非操作系统软件配置要求
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">(1)FireFox浏览器、Google Chrome浏览器。</p>
+                  <p class="text_s">(2)下载地址：http://www.firefox.com.cn/ ;http://chrome.qevlife.cn/</p>
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  二、其它计算终端非操作系统软件配置要求
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">无</p>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 3.5 用户硬件配置要求 -->
+          <div id="thirteen" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                用户硬件配置要求
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  一、计算机硬件配置要求
+                </div>
+                <div class="p_cont">
+                  <table border="1">
+
+                    <thead>
+                      <td>序号</td>
+                      <td>硬件名称</td>
+                      <td>配置要求</td>
+                    </thead>
+                    <tr>
+                      <td>1</td>
+                      <td>CPU</td>
+                      <td>Intel 2.2GHz</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>操作系统</td>
+                      <td>Windows 7及以上</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>显存容量</td>
+                      <td>2GB及以上</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>内存容量</td>
+                      <td>8G+</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>硬盘容量</td>
+                      <td>40GB</td>
+                    </tr>
+                    <tr>
+                      <td>6</td>
+                      <td>显示器分辨率</td>
+                      <td>分辨率1024*768及以上</td>
+                    </tr>
+                    <tr>
+                      <td>7</td>
+                      <td>输入设备</td>
+                      <td>鼠标、键盘</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  二、其它计算终端硬件配置要求
+                </div>
+                <div class="p_cont">
+                  无
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 3.6 用户特殊外置硬件要求（如可穿戴设备等）-->
+          <div id="fourteen" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                用户特殊外置硬件要求
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  一、计算机特殊外置硬件要求
+                </div>
+                <div class="p_cont">
+                  无
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  二、其它计算终端特殊外置硬件要求
+                </div>
+                <div class="p_cont">
+                  无
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 4.0 实验教学项目技术架构及主要研发技术 -->
+          <div id="fifteen" class="introduce ">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                实验教学项目技术架构及主要研发技术
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  项目技术架构及主要研发技术
+                </div>
+                <div class="p_cont">
+                  <table border="1">
+                    <thead>
+                      <td colspan="2">指标</td>
+                      <td>内容</td>
+                    </thead>
+                    <tr>
+                      <td colspan="2">系统架构图及简要说明</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td rowspan="2" width="15%">实验教学项目</td>
+                      <td width="55%">开发技术（如：3D仿真、VR技术、AR技术、动画技术、WebGL技术、OpenGL技术等）</td>
+                      <td width="30%">√3D仿真 √二维动画 √HTML5 √其他</td>
+                    </tr>
+                    <tr>
+                      <td>开发工具（如：Unity3d、Virtools、Cult3D、Visual Studio、Adobe Flash、百度VR内容展示SDK等）</td>
+                      <td>Unity3d, Autodesk Maya,IDEA, Visual Studio, Eclipse</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="3">管理平台
+                      </td>
+                      <td>开发语言（如：JAVA、.Net、PHP等）</td>
+                      <td>HTML, Java</td>
+                    </tr>
+                    <tr>
+                      <td>开发工具（如：Eclipse、Visual Studio、NetBeans、百度VR课堂SDK等）</td>
+                      <td>IDEA, Visual Studio, Eclipse</td>
+                    </tr>
+                    <tr>
+                      <td>采用的数据库（如：Mysql、SQL Server、Oracle等）</td>
+                      <td>Mysql</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 5.0 实验教学项目特色-->
+          <div id="sixteen" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                项目特色
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  一、实验方案设计思路
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">航空物流组织和管理有其固有的特点，由于航空物流的相关业务流程和操作呈现出特殊性、复杂性和安全性等因素，使其难以在传统教学活动中得以重现。</p>
+                  <p class="text_s">本项目对标行业和岗位标准，从航空货物运输的业务流程和操作流程中提炼出航空物流的主要场景，并以虚拟仿真技术直观展现，通过沉浸式和探究式的教学方法强化学生的实践能力和职业素养。项目定位凸显了我校“航空为本、管工结合”的办学理念。</p>
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  二、对标行业和岗位，套索线上实践教学体系
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">项目结合航空物流的实际业务流程和操作，秉持以学生为本的教学理念，对标航空物流行业和岗位，以有效教学为目标，积极探索线上实践教学体系。项目以学生为中心，以实践为切入点，通过模拟航空物流场景，由学生主导实验过程，以交互操作方式训练学生在各环节和作业中发现问题、解决问题的能力，从而为航空物流的人才培养提供一种新的方式和手段。</p>
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  三、沉浸式、探究式教学方法
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">本项目采用虚拟仿真技术以沉浸式的教学方法，从场景展开，让学生参与航空物流全过程，使学生在本项目虚实结合的交互操作中加深对航空物流知识的理解，强化实践能力。同时，实验场景设置一定的随机性，使得业务操作具有一定的多样性和不可预知性，这要求学生在理解理论知识的基础上活学活用，以探究式的方法开展实验，从而达到举一反三的教学效果。</p>
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  四、完善多元评价体系
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">本项目的评价体系在传统理论知识考核的基础上，强化了学生基于理论的实践应用能力，弥补了实践性强的课程在传统考核方式上的不足。项目的评价原则和标准能反映航空物流的现实操作要求，项目对学生知识掌握情况、实验步骤、实验结果和成绩判定更加客观。同时，教师可以根据学生的学习动态，设定考核模式和考核点，进行专项任务考核。项目评价结果的统计分析为项目的持续完善提供重要支撑。针对一些关键知识点，如配载与平衡问题等，这类错误在现实中将极大可能引起事故或者造成损失，实验将直接判定失败。错误操作可能引发的后果程度，结合评价机制，强化学生对航空物流知识的理解和认识。</p>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <!-- 6.0  实验教学项目持续建设服务计划-->
+          <div id="seventeen" class="introduce">
+            <fieldset>
+              <div class="purpose">
+                <i></i>
+                项目应用共享范围和预期效果
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  一、面向高校
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">(1)校内：主要面向我校2017级及以后的物流管理（航空物流方向）、交通运输、物流管理、物流工程专业及其他与航空运输相关的本科专业学生。</p>
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">(2)其他高校：项目建成后，将与省内和国内的相关院校共享项目建设经验和成果，加强与其他高校的教学互动联系。</p>
+                </div>
+              </div>
+              <div class="part1">
+                <div class="p_title">
+                  <i></i>
+                  二、面向社会
+                </div>
+                <div class="p_cont">
+                  <p class="text_s">目前，我校的“ICAO/FIATA空运危险品郑州培训分中心”项目和《CIFA/FIATA货运代理资格证书》已对河南省货代物流业正式开展培训服务，项目建成后将在货代物流业以及航空运输相关行业的培训过程中开展应用，并逐步扩大该项目的应用范围，包括师资培训、学员培训、岗位培训等。</p>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+         
+        </div>
+      </div>
+      <!-- 页脚 -->
+      <div class="center footer">
+        <span>
+          <a href="javascript:;">郑州航空工业管理学院1999-2019 版权所有</a> 
+          <a href="http://www.miit.gov.cn/">豫ICP备05002444号-1</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <script src="./publicJs/vue.js"></script>
+  <script src="./element_ui/element.js"></script>
+  <script src="./publicJs/axios.js"></script>
+  <script src="./publicJs/jquery-1.12.4.js"></script>
+  <script src="./publicJs/pub.js"></script>
+  <script src="./js/index.js"></script>
+  <script src="./layui/layui.js"></script>
+  <script src="./js/introduceInfo.js"></script>
+  <script>
+    // window.location.href="#tp"
+    // window.onload=function(){
+    //   console.log(456);
+    //   location.href="#tp"
+    // 	}
+    //1.获取点击对象。
+    $(".liat_a").click(function () {
+      //4.获取当前元素，先添加类名，在同级兄弟里在删除类名。这是添加标题的颜色。
+      $(this).addClass('a_active').siblings().removeClass('a_active');
+      var index = $(this).index(".liat_a"); //2.获取对象的元素位置。 //错误这里是不用加var index=$(this).index($(".normal-title>a"))所以获取不到、;
+      $(".introduce").hide().eq(index).show(); //3.确定要隐藏的对象，先隐藏，在匹配元素的位置，在隐藏。
+
+    })
+  </script>
+</body>
+
+</html>

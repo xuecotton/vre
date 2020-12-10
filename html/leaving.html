@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言</title>
+    <link rel="shortcut icon" href="../img/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../element_ui/element.css">
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <link rel="stylesheet" href="../css/leaving.css">
+    <link rel="stylesheet" href="../css/headers.css">
+    <style>
+        .el-dropdown-link {
+            cursor: pointer;
+            color: #409EFF;
+        }
+
+        .el-icon-arrow-down {
+            font-size: 12px;
+        }
+
+        .el-dropdown {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+        }
+
+        .el-pagination {
+            text-align: center;
+        }
+
+        [v-cloak] {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <!-- 顶部 -->
+        <!-- 登录状态 -->
+        <div v-if="onLogin">
+
+
+            <div class="top_h">
+                <div class="con_h">
+                    <div class="left_h">
+                        <img src="../img/logo.png" alt="">
+                    </div>
+                    <div class=" us_center">
+                        <el-dropdown :hide-on-click="false" @command="handleCommand">
+                            <div class="hea">
+                                <div class="head_portrait">
+                                    <img :src="head_portrait" alt="" />
+                                </div>
+                                <div class="info">{{student_name}}</div>
+                            </div>
+                            <!-- {{student_name}} -->
+                            <div class="submenu">
+                                <el-dropdown-menu slot="dropdown">
+                                    <el-dropdown-item command="a">个人中心</el-dropdown-item>
+                                    <el-dropdown-item command="b">退出</el-dropdown-item>
+                                </el-dropdown-menu>
+                                <!-- <a href="">个人中心</a>
+                            <a href="">退出</a> -->
+                            </div>
+                        </el-dropdown>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- 未登录状态 -->
+        <div v-if="downLogin">
+
+
+            <div class="top_h">
+                <div class="con_h">
+                    <div class="left_h">
+                        <img src="../img/logo.png" alt="">
+                    </div>
+                    <div class="user ">
+                        <div class="btn_black sjg">
+                            <a href="http://192.168.2.116/alt/login.html" target="_blank">教师登录</a>
+                        </div>
+                        <div class="btn_black" @click="lo()">登录</div>
+                        <div class="btn_white " @click="re()">注册</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <!-- 上部实验标题开始 -->
+        <div class="head_h">
+            <div class="center_h">
+                留言列表
+            </div>
+        </div>
+        <div class="locate_h">
+            <div class="center_h">
+                <i class="icon_h"></i>
+                <el-breadcrumb separator="/">
+                    <el-breadcrumb-item><a href="../index.html">首页</a></el-breadcrumb-item>
+                    <el-breadcrumb-item>留言列表</el-breadcrumb-item>
+                </el-breadcrumb>
+            </div>
+        </div>
+        <!-- 上部实验标题结束 -->
+        <!-- 留言列表 -->
+        <div class="main_top">
+            <!-- 左侧留言页列表 -->
+            <div class="main" v-if="tabledata.length>0">
+                <div class="main_auto ma_bo">
+                    <span>留言区</span>
+                </div>
+                <div class="main_zh ma_bo" v-for="(item,index) of tabledata" >
+                    <div class="main_left">
+                        <img :src="item.head_portrait"  onerror="this.src='../img/head-img.png'" alt="">
+                    </div>
+                    <div class="main_right">
+                        <div class="main_right_top main_mang">
+                            <span>{{item.student_name}}</span>
+                            <span>{{item.create_time}}</span>
+                        </div>
+                        <div class="main_right_sec main_mang">
+                            <span class="main_ris">{{item.title}}</span>
+                        </div>
+                        <div class="main_right_three ">
+                            <span class="main_src" style="display: inline-block; max-width: 900px;vertical-align: middle; text-align: left; white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;">
+                                {{item.content}}
+                            </span>
+                            <div class="main_to_s">
+                                <span @click="go_read(item.message_id)">
+                                    阅读全文
+                                </span>
+                                <div class="main_img icon">
+                                  <i class="icon icon-del"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_right_foot">
+                            <div class="main_fi_one">
+                                <div class="main_di"></div>
+                                <span style="margin-right: 10px;">{{item.reply_num}} 条回复</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- <div id="demo2-2" class="main_foe"></div>   -->
+                <div class="block main_foe">
+                    <el-pagination 
+                        @size-change="handleSizeChange" 
+                        @current-change="handleCurrentChange" 
+                        :current-page.sync="currentPage3" 
+                        :page-size="10" 
+                        layout="prev, pager, next, jumper" 
+                        :total="10*total">
+                    </el-pagination>
+                </div>
+            </div>
+            
+
+        </div>
+        <div class="main_foot">
+            <div class="main_f_top foot_coom">
+                <span>标题：</span>
+                <span>简短一些让其他人快速了解你的主题（1~50字）</span>
+            </div>
+            <div class="main_f_inp">
+                <input type="text" placeholder="请输入标题名称" maxlength="50" v-model="title" class="text_s">
+            </div>
+            <div class="main_f_top main_s_top foot_coom">
+                <span>内容：</span>
+                <span>在这里填写详细的内容</span>
+            </div>
+            <div class="main_f_inp main_s_inp">
+                <textarea name="" id="main_text" cols="166" rows="10" class="text_s" placeholder="请输入正文"
+                    v-model="content"></textarea>
+            </div>
+            <div class="main_f_but">
+                <button @click="update">发布</button>
+            </div>
+            
+        </div>
+        <div>
+            <div class="footer">
+                <div>
+                    <span>
+                        <a href="javascript:;">郑州航空工业管理学院1999-2019 版权所有</a>
+                        <a href="http://www.miit.gov.cn/">豫ICP备05002444号-1</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- 页脚 -->
+        
+    </div>
+    </div>
+    <script src="../element_ui/vue.js"></script>
+    <script src="../element_ui/element.js"></script>
+    <script src="../publicJs/jquery-1.12.4.js"></script>
+    <script src="../layui/layui.js"></script>
+    <script src="../publicJs/axios.js"></script>
+    <script src="../publicJs/pub.js"></script>
+    <script src="../js/leaving.js"></script>
+    
+</body>
+
+</html>

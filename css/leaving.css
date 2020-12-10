@@ -1,0 +1,484 @@
+
+body{
+    background-color: #eee;
+}
+/* 中间 */
+.sjg {
+    margin-right: 20px;
+}
+
+.sjg a {
+    color: #fff ;
+    font-weight: bold;
+}
+.main_top {
+    min-width: 1200px;
+    margin: 0px auto 35px;
+}
+
+.main_top .main {
+    width: 1200px;
+    /* height: 1734px; */
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 0px rgba(75, 91, 138, 0.1)!important;
+    margin: 0px auto 35px;
+}
+
+.ma_bo {
+    width: 100%;
+    border-bottom: 1px solid #f0f2f7;
+}
+
+.main_top .main_zh {
+    height: 150px;
+    position: relative;
+}
+
+.main_top .main_auto,
+.main_ao {
+    height: 60px;
+    position: relative;
+}
+
+.main_top .main_auto span {
+    width: 74px;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 2px;
+    color: #2067b9;
+    position: absolute;
+    left: 30px;
+    top: 27px;
+}
+
+.main_ao span {
+    width: 90px;
+    height: 19px;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 2px;
+    color: #333333;
+    position: absolute;
+    left: 30px;
+    top: 27px;
+}
+
+.main_top .main_left {
+    width: 60px;
+    height: 60px;
+    border-radius: 3px;
+    display: inline;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+
+.main_top .main_left img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #eee;
+}
+
+.main_top .main_right {
+    width: 1070px;
+    height: 140px;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #757575;
+    position: absolute;
+    top: 10px;
+    left: 108px;
+}
+
+.main_top .main_right_top span:first-child {
+    font-family: SourceHanSansCN-Bold;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #333333;
+    font-weight: 600;
+}
+
+.main_top .main_right_top span:nth-child(2) {
+    font-family: SourceHanSansCN-Regular;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 22px;
+    letter-spacing: 0px;
+    color: #bebebe;
+}
+
+.main_top .main_right_sec span:first-child {
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #333333;
+}
+
+.main_top .main_right_three span:nth-child(2) {
+    font-family: SourceHanSansCN-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #dfaf89;
+    cursor: pointer;
+}
+
+.main_top .main_mang {
+    margin-bottom: 7px;
+}
+
+.main_to_s {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.main_to_s {
+    color: #5899fe;
+}
+
+.main_to_s:hover {
+    color: #326ede;
+}
+
+.main_to_s:hover .main_img .icon-del{
+    display: inline-block;
+    background: url(../img/leaving/img.png) no-repeat -30px -52px!important;
+}
+
+.main_top .main_to_s .main_img .icon-del{
+    width: 14px;
+    height: 6px;
+    display: inline-block;
+    background: url(../img/leaving/img.png) no-repeat -6px -52px;
+}
+
+.icon {
+    display: inline-block;
+    width: 20px; height: 20px;
+    overflow: hidden;
+}
+
+.icon > .icon {
+    position: relative;
+    left: -20px;
+    border-right: 20px solid transparent;
+    -webkit-filter: drop-shadow(#326ede 20px 0);
+    filter: drop-shadow(#326ede 20px 0);
+}
+
+.main_top .main_rights {
+    width: 296px;
+    height: 139px;
+    background-color: #fff;
+    box-shadow: 0px 0px 4px 0px rgba(75, 91, 138, 0.1);
+}
+
+.main_foe {
+    padding: 15px 21% 10px 21%!important;
+}
+
+.main_bu {
+    margin: 18px 25px;
+}
+
+
+.main_right_foot div {
+    display: inline-block;
+}
+
+.main_di {
+    width: 14px;
+    height: 12px;
+    background: url(../img/leaving/img.png) no-repeat -5px -2px;
+}
+
+.comi {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+}
+
+.main_right_foot .main_ri_t {
+    background: url(../img/leaving/img.png) no-repeat -6px -24px;
+}
+
+.shoe_img div {
+    background: url(../img/leaving/img.png) no-repeat -30px -24px!important;
+}
+
+.main_fi_one:hover div {
+    background: url(../img/leaving/img.png) no-repeat -29px -2px;
+}
+
+.main_fi_two:hover div {
+    background: url(../img/leaving/img.png) no-repeat -30px -24px;
+}
+
+.main_fi_one:hover,
+.main_fi_two:hover {
+    cursor: pointer;
+    color: #2067b9;
+}
+
+
+/* 页脚 */
+
+
+.main_foot {
+    width: 1200px;
+    height: 363px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 0px rgba(75, 91, 138, 0.1);
+    margin: 0 auto;
+    position: relative;
+}
+
+.foot_coom {
+    font-family: SourceHanSansCN-Regular;
+    font-weight: normal;
+    font-stretch: normal;
+}
+
+.main_f_top {
+    position: absolute;
+    top: 25px;
+    left: 30px;
+}
+
+.main_s_top {
+    position: absolute;
+    top: 125px;
+    left: 30px;
+}
+
+.main_f_top span:first-child {
+    line-height: 24px;
+    letter-spacing: 2px;
+    font-size: 16px;
+    color: #333333;
+}
+
+.main_f_top span:nth-child(2) {
+    font-size: 12px;
+    line-height: 19px;
+    letter-spacing: 1px;
+    color: #bebebe;
+}
+
+.main_s_inp #main_text {
+    width: 1130px;
+    height: 136px!important;
+    position: absolute!important;
+    top: 155px!important;
+    left: 30px!important;
+    border: solid 1px #f7f3f0;
+	padding:10px;
+}
+
+.main_s_inp placeholder {
+    color: #eee;
+}
+
+.main_f_inp input {
+    width: 1130px;
+    height: 42px;
+    border: solid 1px #f7f3f0;
+    position: absolute;
+    top: 60px;
+    left: 30px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.main_f_but {
+    position: absolute;
+    top: 315px;
+    left: 80%;
+}
+
+.main_f_but button {
+    cursor: pointer;
+    width: 107px;
+    height: 40px;
+    border: solid 1px #f7f3f0;
+    margin: 0px 0 0 88%;
+    background: url(../img/leaving/img.png) no-repeat 5px -230px;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    text-align: center;
+    line-height: 21px;
+    letter-spacing: 1px;
+    color: #bebebe;
+}
+
+.main_f_but button:hover {
+    background: url(../img/leaving/img.png) no-repeat 5px -257px;
+    color: #fff;
+    background-color: #2067b9;
+}
+
+
+/* 头部 */
+body {
+    background-color: #f7f7f7;
+    font-family: SourceHanSansCN;
+}
+.center {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.top {
+    height: 88px;
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+.top .center {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.top h1 img {
+    margin-top: 24px;
+}
+.btn {
+    width: 100px;
+    height: 36px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 36px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #2067b9
+}
+
+
+.btn_blue {
+    background-image: linear-gradient(90deg, #3771fe 0%, #5899fe 100%), linear-gradient( #2067b9, #2067b9);
+    background-blend-mode: normal, normal;
+    color: #ffffff;
+}
+
+.btn_blue:hover{
+    background-image: linear-gradient(90deg, #3065e6 0%, #5289de 100%), linear-gradient( #326ede, #3a73dc);
+}
+
+.head_portrait{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border:3px solid rgba(0, 91,172, 0.5);
+}
+.head_portrait img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.us_center .info{
+    font-family: SourceHanSansCN-Regular;
+    font-size: 16px;
+    color: #fff;
+}
+
+/* 下拉菜单 */
+.head_portrait{
+    position: relative;
+    margin-right: 10px;
+}
+
+.submenu{
+    width: 100px;
+    background-color:#fff;
+    box-shadow: 0 0 6px 0 rgba(75, 91, 138, 0.2);
+    position: absolute;
+    top:88px;
+    text-align: center;
+    /* left: -155px; */
+} 
+
+/* 登录后状态 */
+.us_center{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+}
+.hea{
+    display: flex;
+    justify-self: start;
+    align-items: center;
+    cursor: pointer;
+}
+img{
+    object-fit: cover;
+}
+
+.user{
+    display: flex;
+    /* margin-top: 25px; */
+}
+
+.user ul{
+    display: inline-block;
+	list-style: none;
+}
+.btn_black:hover {
+    border: solid 1px #ffffff;
+    background-color: #fff;
+    color: #2067b9;
+  }
+
+.btn_black:hover a {
+    color: #2067b9;
+  }
+
+.user li{
+    display: none;
+
+}
+/* 下拉菜单 */
+.head_portrait{
+    position: relative;
+    margin-right: 10px;
+}
+
+.submenu{
+    width: 100px;
+    background-color:#fff;
+    box-shadow: 0 0 6px 0 rgba(75, 91, 138, 0.2);
+    position: absolute;
+    top:88px;
+    text-align: center;
+    /* left: -155px; */
+} 
+
+
+
+
+
